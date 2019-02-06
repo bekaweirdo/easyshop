@@ -13,7 +13,7 @@ export class RecipeService {
         new Ingredient('French Fries', 20)
       ]),
     new Recipe(' Another Test Recipe', 'This is simply a test',
-      'https://www.mcdonalds.com/content/dam/usa/documents/mcdelivery/mcdelivery_new11.jpg', [
+      'https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg', [
         new Ingredient('Bread', 2),
         new Ingredient('Meat', 1)
       ]),
