@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+
 import {Recipe} from '../../models/recipes/recipe.model';
 import {RecipeService} from '../../services/recipe.service';
-import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -13,7 +14,8 @@ export class RecipeDetailComponent implements OnInit {
   id: number;
 
   constructor(private recipeService: RecipeService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -21,6 +23,11 @@ export class RecipeDetailComponent implements OnInit {
       this.id = +params['id'];
       this.recipe = this.recipeService.getRecipe(this.id);
     });
+  }
+
+  onEditRecipe() {
+    // edit doesn't need Id, because you are already in the directory
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
   onAddToShoppingList() {
