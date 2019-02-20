@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Recipe} from '../../models/recipes/recipe.model';
 import {Ingredient} from '../../shared/ingredient.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
   recipes: Recipe[] = [
     new Recipe('A Test Recipe', 'This is simply a test',
       'https://www.mcdonalds.com/content/dam/usa/documents/mcdelivery/mcdelivery_new11.jpg', [
@@ -33,11 +35,15 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.recipeService.recipesChanged
+    this.subscription = this.recipeService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
         });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
