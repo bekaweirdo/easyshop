@@ -6,6 +6,7 @@ import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.componen
 import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {SignupComponent} from './auth/signup/signup.component';
+import {SigninComponent} from './auth/signin/signin.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     ]
   },
   {path: 'signup', component: SignupComponent},
+  {path: 'signin', component: SigninComponent},
   {
     path: 'shopping-list',
     component: ShoppingListComponent,
