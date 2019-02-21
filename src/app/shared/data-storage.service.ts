@@ -5,7 +5,8 @@ import {Recipe} from '../models/recipes/recipe.model';
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: HttpClient, private recipeService: RecipeService) {
+  constructor(private http: HttpClient,
+              private recipeService: RecipeService) {
 
   }
 
@@ -19,6 +20,11 @@ export class DataStorageService {
         (response: Response) => {
           // TODO: Error in type
           const recipes: any = response;
+          for (const recipe of recipes) {
+            if (!recipe['ingredients']) {
+              recipe['ingredients'] = [];
+            }
+          }
           this.recipeService.setRecipes(recipes);
         }
       );
