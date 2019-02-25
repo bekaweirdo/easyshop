@@ -18,11 +18,12 @@ const recipesRoutes: Routes = [
     ]
   },
 ];
+
 @NgModule({
-  imports:[
+  imports: [
     RouterModule.forChild(recipesRoutes)
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
