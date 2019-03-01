@@ -4,7 +4,6 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 
-import {HeaderComponent} from './header/header.component';
 import {ShoppingListService} from './services/shopping-list.service';
 import {RecipeService} from './services/recipe.service';
 import {DataStorageService} from './shared/data-storage.service';
@@ -14,13 +13,11 @@ import {RecipesModule} from './recipes/recipes.module';
 import {SharedModule} from './shared/shared.module';
 import {ShoppingListModule} from './shopping-list/shopping-list.module';
 import {AuthModule} from './auth/auth.module';
-import { HomeComponent } from './home/home.component';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +26,9 @@ import { HomeComponent } from './home/home.component';
     RecipesModule,
     SharedModule,
     ShoppingListModule,
-    AuthModule
+    AuthModule,
+    CoreModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
