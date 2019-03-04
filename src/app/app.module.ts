@@ -5,11 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {StoreModule} from '@ngrx/store';
 
-import {ShoppingListService} from './services/shopping-list.service';
-import {RecipeService} from './services/recipe.service';
-import {DataStorageService} from './shared/data-storage.service';
-import {AuthService} from './auth/auth.service';
-import {AuthGuardService} from './auth/auth-guard.service';
 import {RecipesModule} from './recipes/recipes.module';
 import {SharedModule} from './shared/shared.module';
 import {ShoppingListModule} from './shopping-list/shopping-list.module';
